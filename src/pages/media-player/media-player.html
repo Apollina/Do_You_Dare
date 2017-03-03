@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Media Player</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col>
+      <ion-list inset>
+
+  <h2>{{ clickedMedia.title }}</h2>
+
+  <audio controls *ngIf='clickedMedia.media_type === "audio"'>
+    <source [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+clickedMedia.filename">
+  </audio>
+  <video *ngIf='clickedMedia.media_type === "video"' controls>
+    <source [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+clickedMedia.filename" poster ="'http://media.mw.metropolia.fi/wbma/uploads/' + (clickMedia.filename | thumbnail: 'large')">
+  </video>
+  <img *ngIf='clickedMedia.media_type === "image"' [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+clickedMedia.filename">
+
+  <ul>
+    <li>Username: {{ clickedMedia.username }}</li>
+    <li>Date added: {{ clickedMedia.time_added }}</li>
+    <li>Description: {{ clickedMedia.description }}</li>
+
+  </ul>
+
+
+  <h3 *ngIf="hasLiked">I like it!</h3>
+  <button ion-button (click)="putLike()">{{ hasLiked ? 'Unlike ' : 'Like ' }}
+    <ion-icon name="ios-heart"></ion-icon>
+  </button>
+
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

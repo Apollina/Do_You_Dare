@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Upload Files</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form #uploadForm=ngForm (ngSubmit)='upload($event, uploadForm.value)'>
+      <p>
+        <label>Flie:</label>
+        <input type="file" name="file_upload" ngModel>
+      </p>
+      <p>
+        <label>Title (required):</label>
+        <input type="text" name="title" ngModel required>
+      </p>
+      <p>
+        <label>Description (optional):</label>
+        <textarea type="text" name="description" ngModel></textarea>
+      </p>
+      <p>
+        <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
+      </p>
+    </form>
+</ion-content>
