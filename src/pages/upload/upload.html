@@ -17,20 +17,20 @@
 <ion-content padding>
 
     <form #uploadForm=ngForm (ngSubmit)='upload($event, uploadForm.value)'>
-      <p>
-        <label>file:</label>
+      <ion-item>
+        <label>Flie:</label>
         <input type="file" name="file_upload" ngModel>
-      </p>
-      <p>
+      </ion-item>
+      <ion-item>
         <label>Title of challenge:</label>
         <input type="text" name="title" ngModel required>
-      </p>
-      <p>
+      </ion-item>
+      <ion-item>
         <label>Description of challenge:</label>
         <textarea type="text" name="description" ngModel required></textarea>
-      </p>
-      <p>
+      </ion-item>
+      <ion-item>
         <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
-      </p>
+      </ion-item>
     </form>
 </ion-content>
