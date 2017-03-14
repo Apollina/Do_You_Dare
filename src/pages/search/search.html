@@ -1,0 +1,51 @@
+<!--
+  Generated template for the Search page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Search</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form #searchForm=ngForm (ngSubmit)='search(searchForm.value)'>
+    <ion-item>
+      <ion-input type="text" name="title" ngModel required></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <button type="submit" ion-button round outline class="search-button" [disabled]="!searchForm.valid">SEARCH</button>
+    </ion-item>
+  </form>
+
+  <ion-card *ngFor="let file of resultList" (click)="showMedia(file.file_id)">
+    <img [alt]="file.title"
+         [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + (file.filename | thumbnail: 'large')">
+    <video *ngIf="media.media_type == 'video'" width="320" height="240" controls>
+      <source [src]="url + media.filename" type="video/mp4">
+    </video>
+    <img *ngIf="media.media_type == 'audio'" src="././assets/img/audio_icon.jpg" width="300px" type="audio/mpeg">
+    <ion-card-content>
+      <ion-card-title>
+        {{media.title}}
+      </ion-card-title>
+      <p>
+        {{media.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
