@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import {NavParams, NavController} from 'ionic-angular';
 import { AuthService } from './../../providers/auth-service';
 import { MediaService } from './../../providers/media-service';
 import { LikeService } from './../../providers/like-service';
+import {CommentingPage} from "../commenting/commenting";
+
 
 
 @Component({
@@ -14,11 +16,13 @@ export class MediaPlayerPage {
   private id: number;
   private clickedMedia: any = {};
   private favouriteList: any = [];
+  private likeNumber: number;
 
   private hasLiked: boolean = false;
 
   constructor(
     public param: NavParams,
+    public navCtrl: NavController,
     private mediaService: MediaService,
     private favouriteService: LikeService,
     private authService: AuthService) {
@@ -48,10 +52,21 @@ export class MediaPlayerPage {
             if (this.authService.getUserInfo().user_id === favourite.user_id) {
               this.hasLiked = true;
             }
+            this.likeNumber = res.length;
           }
         });
 
+    this.favouriteService.getFavouriteByFile(this.id)
+       .subscribe(
+       res => {
+         this.likeNumber = res.length;
+       });
+
   }
+
+    navToCom = () => {
+      this.navCtrl.push(CommentingPage, { "id": this.id });
+    }
     putLike = () => {
       if (!this.hasLiked) {
         let param: any = {};

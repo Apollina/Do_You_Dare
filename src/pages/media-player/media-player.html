@@ -7,13 +7,9 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="cards-bg">
 
-  <ion-row>
-    <ion-col>
-      <ion-list inset>
-
-  <h2>{{ clickedMedia.title }}</h2>
+  <ion-card>
 
   <audio controls *ngIf='clickedMedia.media_type === "audio"'>
     <source [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+clickedMedia.filename">
@@ -23,21 +19,42 @@
   </video>
   <img *ngIf='clickedMedia.media_type === "image"' [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+clickedMedia.filename">
 
-  <ul>
-    <li>Username: {{ clickedMedia.username }}</li>
-    <li>Date added: {{ clickedMedia.time_added }}</li>
-    <li>Description: {{ clickedMedia.description }}</li>
 
-  </ul>
+   <ion-card-content>
+     <ion-card-title>
+       {{clickedMedia.title}}
+     </ion-card-title>
+    <p>Username: {{ clickedMedia.username }}</p>
+    <p>Date added: {{ clickedMedia.time_added }}</p>
+    <p>Description: {{ clickedMedia.description }}</p>
+   </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col text-left>
+        <button ion-button clear small color="danger"(click)="putLike()" icon-left>
+          <ion-icon name="ios-happy-outline" *ngIf="!hasLiked"></ion-icon>
+          <ion-icon name="ios-happy" *ngIf="hasLiked" color="danger"></ion-icon>
+          Like
+        </button>
+      </ion-col>
+
+      <ion-col text-center>
+        <button ion-button clear small color="danger" id="likeCount">
+          <span text-lowercase style="margin: auto 7px; font-size: 1.6rem" color="danger">{{likeNumber}} like{{ likeNumber !== 1 ? 's' : '' }}</span>
+        </button>
+      </ion-col>
 
 
-  <h3 *ngIf="hasLiked">I like it!</h3>
-  <button ion-button (click)="putLike()">{{ hasLiked ? 'Unlike ' : 'Like ' }}
-    <ion-icon name="ios-heart"></ion-icon>
-  </button>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" (click)="navToCom()" icon-left>
+          <ion-icon name='chatbubbles'></ion-icon>
+          Comment
+        </button>
+      </ion-col>
 
-      </ion-list>
-    </ion-col>
-  </ion-row>
+    </ion-row>
 
+
+
+  </ion-card>
 </ion-content>

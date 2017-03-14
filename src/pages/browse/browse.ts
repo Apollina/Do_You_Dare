@@ -6,6 +6,7 @@ import { MediaService } from './../../providers/media-service';
 import {MediaPlayerPage} from "../media-player/media-player";
 import {LikeService} from "../../providers/like-service";
 import { NavParams } from 'ionic-angular';
+import {CommentingPage} from "../commenting/commenting";
 
 @Component({
   selector: 'page-browse',
@@ -39,18 +40,22 @@ export class BrowsePage {
     this.navCtrl.setRoot(LoginPage);
   };
 
+  navToCom = () => {
+    this.navCtrl.push(CommentingPage, { "id": this.id });
+  };
+
   putLike = () => {
     if (!this.hasLiked) {
       let param: any = {};
       param.file_id = +this.id;
       this.favouriteService.createFavorite(param)
         .subscribe(res => {
-          this.hasLiked = !this.hasLiked;
+          this.hasLiked = true;
         });
     } else {
       this.favouriteService.deleteFavorite(this.id)
         .subscribe(res => {
-          this.hasLiked = !this.hasLiked;
+          this.hasLiked = false;
         });
     }
   };

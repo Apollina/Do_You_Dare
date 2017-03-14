@@ -11,6 +11,9 @@ import {MediaService } from "../providers/media-service";
 import { LikeService } from "../providers/like-service"
 import {MediaPlayerPage} from "../pages/media-player/media-player";
 import { Thumbnail } from './../pipes/thumbnail';
+import {Commenting} from "../providers/commenting";
+import {CommentingPage} from "../pages/commenting/commenting";
+
 
 
 @NgModule({
@@ -22,7 +25,8 @@ import { Thumbnail } from './../pipes/thumbnail';
     UploadPage,
     BrowsePage,
     Thumbnail,
-    MediaPlayerPage
+    MediaPlayerPage,
+    CommentingPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,8 +39,9 @@ import { Thumbnail } from './../pipes/thumbnail';
     RegisterPage,
     UploadPage,
     BrowsePage,
-    MediaPlayerPage
+    MediaPlayerPage,
+    CommentingPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, MediaService, Thumbnail, LikeService ]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, MediaService, Thumbnail, LikeService, Commenting]
 })
 export class AppModule {}
