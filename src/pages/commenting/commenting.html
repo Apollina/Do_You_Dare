@@ -15,19 +15,19 @@
   <ion-list>
 
     <ion-item margin-left>
-      <h4>{{selectedMedia.artist}}</h4>
-      <p text-wrap>{{selectedMedia.description}}</p>
+      <h2>{{selectedMedia.artist}}</h2>
+      <h3 text-wrap>{{selectedMedia.description}}</h3>
 
       <ion-row text-right>
-        <span>{{selectedMedia.time}}</span>
+        <h5>{{selectedMedia.time}}</h5>
       </ion-row>
     </ion-item>
 
     <ion-item *ngFor="let comment of commentList" (press)="presentConfirm($event, comment.comment_id, comment.user_id)" margin-left>
-      <h4>{{comment.username}}</h4>
-      <p margin-right>{{comment.comment}}</p>
+      <h2>{{comment.username}}</h2>
+      <h3 margin-right>{{comment.comment}}</h3>
       <ion-row text-right>
-        <span>{{comment.time}}</span>
+        <h5>{{comment.time}}</h5>
       </ion-row>
     </ion-item>
 

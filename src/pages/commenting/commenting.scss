@@ -1,6 +1,7 @@
 page-commenting {
   @import './../../app/app';
 
+
   page-comment {
     ion-content, ion-header, ion-footer {
       background-color: white!important;
@@ -29,7 +30,7 @@ page-commenting {
         margin: 1.5rem auto!important;
         white-space: normal!important;
       }
-      h4 {
+      h2 {
         font-weight: bold!important;
       }
     }

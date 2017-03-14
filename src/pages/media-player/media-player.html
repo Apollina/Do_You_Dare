@@ -24,9 +24,12 @@
      <ion-card-title>
        {{clickedMedia.title}}
      </ion-card-title>
-    <p>Username: {{ clickedMedia.username }}</p>
-    <p>Date added: {{ clickedMedia.time_added }}</p>
-    <p>Description: {{ clickedMedia.description }}</p>
+    <ion-item>Username: {{ clickedMedia.username }}</ion-item>
+     <ion-item>
+       <ion-label>Date</ion-label>
+       <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="clickedMedia.time_added"></ion-datetime>
+     </ion-item>
+    <ion-item>Description: {{ clickedMedia.description }}</ion-item>
    </ion-card-content>
 
     <ion-row no-padding>
