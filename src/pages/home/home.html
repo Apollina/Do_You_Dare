@@ -17,6 +17,25 @@
 <ion-content padding>
   <h3>Welcome inside, {{username}}!</h3>
   Your Email is: {{email}}
+
+
+  <ion-card *ngFor="let file of mediaList" (click)="showMedia(file.file_id)">
+    <img [alt]="file.title" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + (file.filename | thumbnail: 'large')">
+    <video *ngIf="media.media_type == 'video'" width="320" height="240" controls>
+      <source [src]="url + media.filename" type="video/mp4">
+    </video>
+    <img *ngIf="media.media_type == 'audio'" src="././assets/img/audio_icon.jpg" width="300px" type="audio/mpeg">
+
+
+    <ion-card-content>
+      <ion-card-title>
+        {{media.title}}
+      </ion-card-title>
+      <p>
+        {{media.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 

@@ -45,4 +45,21 @@ export class MediaService {
       );
   };
 
+  getMediaByUser = () => {
+    this.token = this.authService.getUserInfo().token;
+    return this.http.get(this.url + '/media/user?token=' + this.token)
+      .map(
+        res =>
+          res.json()
+      );
+  };
+
+  searchMedia = (title) => {
+    this.token = this.authService.getUserInfo().token;
+    return this.http.post(this.url + '/media/search?token=' + this.token, title)
+      .map(
+        res =>
+          res.json()
+      );
+  }
 }

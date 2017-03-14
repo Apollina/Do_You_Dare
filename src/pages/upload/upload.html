@@ -18,16 +18,16 @@
 
     <form #uploadForm=ngForm (ngSubmit)='upload($event, uploadForm.value)'>
       <p>
-        <label>Flie:</label>
+        <label>file:</label>
         <input type="file" name="file_upload" ngModel>
       </p>
       <p>
-        <label>Title (required):</label>
+        <label>Title of challenge:</label>
         <input type="text" name="title" ngModel required>
       </p>
       <p>
-        <label>Description (optional):</label>
-        <textarea type="text" name="description" ngModel></textarea>
+        <label>Description of challenge:</label>
+        <textarea type="text" name="description" ngModel required></textarea>
       </p>
       <p>
         <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>

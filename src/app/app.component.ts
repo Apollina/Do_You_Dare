@@ -5,6 +5,7 @@ import {LoginPage} from "../pages/login/login";
 import {HomePage} from "../pages/home/home";
 import {BrowsePage} from "../pages/browse/browse";
 import {UploadPage} from "../pages/upload/upload";
+import {SearchPage} from "../pages/search/search";
 
 
 @Component({
@@ -29,6 +30,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Browse Files', component: BrowsePage },
       { title: 'Upload Files', component: UploadPage },
+      { title: 'Search', component: SearchPage}
     ];
   }
 

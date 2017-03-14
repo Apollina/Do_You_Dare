@@ -13,6 +13,7 @@ import {MediaPlayerPage} from "../pages/media-player/media-player";
 import { Thumbnail } from './../pipes/thumbnail';
 import {Commenting} from "../providers/commenting";
 import {CommentingPage} from "../pages/commenting/commenting";
+import {SearchPage} from "../pages/search/search";
 
 
 
@@ -26,7 +27,8 @@ import {CommentingPage} from "../pages/commenting/commenting";
     BrowsePage,
     Thumbnail,
     MediaPlayerPage,
-    CommentingPage
+    CommentingPage,
+    SearchPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -40,7 +42,8 @@ import {CommentingPage} from "../pages/commenting/commenting";
     UploadPage,
     BrowsePage,
     MediaPlayerPage,
-    CommentingPage
+    CommentingPage,
+    SearchPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, MediaService, Thumbnail, LikeService, Commenting]
 })
