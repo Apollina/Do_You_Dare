@@ -1,0 +1,18 @@
+ion-content, .login{
+  background: url('../../assets/start.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#user, #password{
+  background-color: transparent !important;
+}
+
+.register-btn {
+  text-line-through-color: white;
+}
+
+.logo {
+
+}
